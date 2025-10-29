@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astroverse AI - Ancient Wisdom, Intelligent Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #0a0014;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0014 0%, #1a0033 50%, #2d004d 100%);
+            z-index: -2;
+        }
+
+        /* Galaxy Spiral Background */
+        .galaxy-spiral {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(ellipse at center, 
+                transparent 0%, 
+                rgba(138, 43, 226, 0.03) 20%, 
+                rgba(236, 72, 153, 0.03) 40%, 
+                transparent 70%);
+            animation: galaxyRotate 120s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes galaxyRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Nebula Clouds */
+        .nebula {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: nebulaFloat 30s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        .nebula1 {
+            background: radial-gradient(circle at center, #8b5cf6, transparent);
+            top: -300px;
+            left: -300px;
+            animation-delay: 0s;
+        }
+
+        .nebula2 {
+            background: radial-gradient(circle at center, #ec4899, transparent);
+            bottom: -300px;
+            right: -300px;
+            animation-delay: 10s;
+        }
+
+        .nebula3 {
+            background: radial-gradient(circle at center, #10b981, transparent);
+            top: 50%;
+            left: 30%;
+            animation-delay: 20s;
+        }
+
+        @keyframes nebulaFloat {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            33% { 
+                transform: translate(50px, -30px) scale(1.1);
+                opacity: 0.5;
+            }
+            66% { 
+                transform: translate(-30px, 50px) scale(0.9);
+                opacity: 0.2;
+            }
+        }
+
+        /* Aurora Borealis Effect */
+        .aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(0deg,
+                transparent 0%,
+                rgba(0, 255, 170, 0.1) 30%,
+                rgba(138, 43, 226, 0.1) 60%,
+                transparent 100%);
+            animation: auroraWave 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes auroraWave {
+            0%, 100% { 
+                transform: translateY(-50%) skewX(0deg);
+                opacity: 0;
+            }
+            50% { 
+                transform: translateY(0) skewX(5deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Animated Stars */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: shoot 3s linear infinite;
+            z-index: -1;
+        }
+
+        .shooting-star::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, white, transparent);
+            transform: translateX(-100%);
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(500px, 500px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cosmic Dust */
+        .cosmic-dust {
+            position: fixed;
+            width: 1px;
+            height: 1px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: dustFloat 40s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes dustFloat {
+            0% {
+                transform: translateX(0) translateY(100vh);
+            }
+            100% {
+                transform: translateX(100vw) translateY(-100vh);
+            }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.8), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Constellation Lines */
+        .constellation {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .constellation-line {
+            stroke: #8b5cf6;
+            stroke-width: 1;
+            fill: none;
+            animation: constellationPulse 5s ease-in-out infinite;
+        }
+
+        @keyframes constellationPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Sine Wave Animation */
+        .sine-wave {
+            position: fixed;
+            width: 200%;
+            height: 200px;
+            left: -50%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .sine-wave-path {
+            stroke: url(#sineGradient);
+            stroke-width: 2;
+            fill: none;
+            animation: sineFlow 8s linear infinite;
+        }
+
+        @keyframes sineFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -1000; }
+        }
+
+        .sine-wave-1 {
+            top: 20%;
+            animation: sineMove1 20s ease-in-out infinite;
+        }
+
+        .sine-wave-2 {
+            top: 50%;
+            animation: sineMove2 25s ease-in-out infinite;
+        }
+
+        .sine-wave-3 {
+            bottom: 20%;
+            animation: sineMove3 30s ease-in-out infinite;
+        }
+
+        @keyframes sineMove1 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(30px) rotate(2deg); }
+        }
+
+        @keyframes sineMove2 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(-3deg); }
+        }
+
+        @keyframes sineMove3 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(1deg); }
+        }
+
+        /* Rotating Mini Galaxies */
+        .mini-galaxy {
+            position: fixed;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .galaxy-1 {
+            width: 150px;
+            height: 150px;
+            top: 15%;
+            left: 10%;
+            background: conic-gradient(from 0deg, 
+                transparent, 
+                rgba(138, 43, 226, 0.2), 
+                rgba(236, 72, 153, 0.2), 
+                transparent, 
+                rgba(255, 184, 0, 0.2), 
+                transparent);
+            animation: galaxySpin1 30s linear infinite;
+            filter: blur(2px);
+        }
+
+        .galaxy-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 15%;
+            background: conic-gradient(from 45deg, 
+                transparent, 
+                rgba(16, 185, 129, 0.2), 
+                rgba(138, 43, 226, 0.2), 
+                transparent, 
+                rgba(236, 72, 153, 0.2), 
+                transparent);
+            animation: galaxySpin2 40s linear infinite reverse;
+            filter: blur(3px);
+        }
+
+        .galaxy-3 {
+            width: 120px;
+            height: 120px;
+            bottom: 30%;
+            left: 40%;
+            background: conic-gradient(from 90deg, 
+                transparent, 
+                rgba(255, 107, 107, 0.2), 
+                rgba(255, 184, 0, 0.2), 
+                transparent, 
+                rgba(138, 43, 226, 0.2), 
+                transparent);
+            animation: galaxySpin3 25s linear infinite;
+            filter: blur(2px);
+        }
+
+        @keyframes galaxySpin1 {
+            0% { 
+                transform: rotate(0deg) scale(1); 
+                opacity: 0.3;
+            }
+            50% { 
+                transform: rotate(180deg) scale(1.2); 
+                opacity: 0.5;
+            }
+            100% { 
+                transform: rotate(360deg) scale(1); 
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes galaxySpin2 {
+            0% { 
+                transform: rotate(0deg) translateX(0); 
+            }
+            100% { 
+                transform: rotate(360deg) translateX(30px); 
+            }
+        }
+
+        @keyframes galaxySpin3 {
+            0% { 
+                transform: rotate(0deg) scale(1); 
+            }
+            100% { 
+                transform: rotate(360deg) scale(1.3); 
+            }
+        }
+
+        /* Circle Ripple Waves */
+        .ripple-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .ripple-wave {
+            position: absolute;
+            border: 2px solid;
+            border-radius: 50%;
+            opacity: 0;
+            animation: rippleExpand 4s ease-out infinite;
+        }
+
+        .ripple-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 30%;
+            border-color: rgba(138, 43, 226, 0.5);
+            animation-delay: 0s;
+        }
+
+        .ripple-2 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 20%;
+            border-color: rgba(236, 72, 153, 0.5);
+            animation-delay: 1s;
+        }
+
+        .ripple-3 {
+            width: 80px;
+            height: 80px;
+            bottom: 25%;
+            left: 15%;
+            border-color: rgba(255, 184, 0, 0.5);
+            animation-delay: 2s;
+        }
+
+        .ripple-4 {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 60%;
+            border-color: rgba(16, 185, 129, 0.5);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes rippleExpand {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Pulsing Circle Waves */
+        .pulse-circle {
+            position: fixed;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .pulse-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+            background: radial-gradient(circle, 
+                transparent 30%, 
+                rgba(138, 43, 226, 0.1) 50%, 
+                transparent 70%);
+            animation: pulseWave1 10s ease-in-out infinite;
+        }
+
+        .pulse-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, 
+                transparent 30%, 
+                rgba(236, 72, 153, 0.1) 50%, 
+                transparent 70%);
+            animation: pulseWave2 12s ease-in-out infinite;
+        }
+
+        @keyframes pulseWave1 {
+            0%, 100% { 
+                transform: scale(0.8) rotate(0deg); 
+                opacity: 0.3;
+            }
+            50% { 
+                transform: scale(1.2) rotate(180deg); 
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes pulseWave2 {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 0.4;
+            }
+            50% { 
+                transform: scale(1.5) rotate(-180deg); 
+                opacity: 0.2;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(10, 0, 20, 0.9) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b6b, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(139, 92, 246, 0.8); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b6b, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .get-started-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(139, 92, 246, 0.5); }
+            to { box-shadow: 0 0 20px rgba(236, 72, 153, 0.8); }
+        }
+
+        .get-started-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .badge {
+            background: rgba(255, 184, 0, 0.1);
+            border: 1px solid rgba(255, 184, 0, 0.3);
+            color: #ffb800;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ff6b6b, #8b5cf6, #ffb800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        .primary-btn, .secondary-btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Cosmic Path Visual */
+        .cosmic-visual {
+            position: absolute;
+            right: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            animation: pulse-ring 3s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.6; }
+        }
+
+        .orbit-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+        }
+
+        .orbit-ring:nth-child(2) {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .orbit-ring:nth-child(3) {
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            animation-delay: 1s;
+        }
+
+        .cosmic-center {
+            position: absolute;
+            top: 35%;
+            left: 35%;
+            width: 30%;
+            height: 30%;
+            background: radial-gradient(circle, #8b5cf6, #ec4899);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.8);
+            animation: cosmic-glow 2s infinite alternate;
+        }
+
+        @keyframes cosmic-glow {
+            from { box-shadow: 0 0 30px rgba(139, 92, 246, 0.6); }
+            to { box-shadow: 0 0 60px rgba(236, 72, 153, 1); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #8b5cf6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            animation: icon-float 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .feature-btn {
+            margin-top: 20px;
+            background: transparent;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: #8b5cf6;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .feature-btn:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 100px 50px;
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ffb800, #ff6b6b, #8b5cf6, #10b981);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            animation: service-icon-rotate 8s linear infinite;
+        }
+
+        @keyframes service-icon-rotate {
+            0% { transform: rotate(0deg); background-position: 0% 50%; }
+            100% { transform: rotate(360deg); background-position: 100% 50%; }
+        }
+
+        /* Birth Chart Form */
+        .birth-chart {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            animation: formSlideIn 1s ease-out;
+        }
+
+        @keyframes formSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.05);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .rashi-sign {
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #a0a0a0;
+            margin-bottom: 25px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffb800, #ff6b6b);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: submitPulse 2s infinite;
+        }
+
+        @keyframes submitPulse {
+            0%, 100% { box-shadow: 0 5px 15px rgba(255, 184, 0, 0.4); }
+            50% { box-shadow: 0 5px 25px rgba(255, 107, 107, 0.6); }
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 50px 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #8b5cf6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #8b5cf6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(139, 92, 246, 0.3);
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0014;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeOut 1s ease-out 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .loader-ring {
+            width: 100px;
+            height: 100px;
+            border: 3px solid transparent;
+            border-top: 3px solid #8b5cf6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .cosmic-visual {
+                width: 250px;
+                height: 250px;
+                right: 50px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- Cosmic Background -->
+    <div class="cosmic-background"></div>
+    
+    <!-- Galaxy Spiral -->
+    <div class="galaxy-spiral"></div>
+    
+    <!-- Nebula Clouds -->
+    <div class="nebula nebula1"></div>
+    <div class="nebula nebula2"></div>
+    <div class="nebula nebula3"></div>
+    
+    <!-- Aurora Effect -->
+    <div class="aurora"></div>
+    
+    <!-- Constellation SVG -->
+    <svg class="constellation" style="position: fixed; top: 10%; left: 20%; width: 200px; height: 200px;">
+        <line class="constellation-line" x1="10" y1="10" x2="50" y2="30" />
+        <line class="constellation-line" x1="50" y1="30" x2="80" y2="20" />
+        <line class="constellation-line" x1="80" y1="20" x2="120" y2="60" />
+        <line class="constellation-line" x1="120" y1="60" x2="90" y2="100" />
+        <circle cx="10" cy="10" r="2" fill="#8b5cf6" opacity="0.5"/>
+        <circle cx="50" cy="30" r="2" fill="#8b5cf6" opacity="0.5"/>
+        <circle cx="80" cy="20" r="2" fill="#8b5cf6" opacity="0.5"/>
+        <circle cx="120" cy="60" r="2" fill="#8b5cf6" opacity="0.5"/>
+        <circle cx="90" cy="100" r="2" fill="#8b5cf6" opacity="0.5"/>
+    </svg>
+    
+    <svg class="constellation" style="position: fixed; top: 60%; right: 15%; width: 150px; height: 150px;">
+        <line class="constellation-line" x1="20" y1="20" x2="60" y2="40" />
+        <line class="constellation-line" x1="60" y1="40" x2="100" y2="30" />
+        <line class="constellation-line" x1="60" y1="40" x2="70" y2="80" />
+        <circle cx="20" cy="20" r="2" fill="#ec4899" opacity="0.5"/>
+        <circle cx="60" cy="40" r="2" fill="#ec4899" opacity="0.5"/>
+        <circle cx="100" cy="30" r="2" fill="#ec4899" opacity="0.5"/>
+        <circle cx="70" cy="80" r="2" fill="#ec4899" opacity="0.5"/>
+    </svg>
+    
+    <!-- Sine Waves -->
+    <svg class="sine-wave sine-wave-1" viewBox="0 0 1000 200">
+        <defs>
+            <linearGradient id="sineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.5" />
+                <stop offset="50%" style="stop-color:#ec4899;stop-opacity:0.8" />
+                <stop offset="100%" style="stop-color:#ffb800;stop-opacity:0.5" />
+            </linearGradient>
+        </defs>
+        <path class="sine-wave-path" d="M0,100 Q125,50 250,100 T500,100 T750,100 T1000,100" stroke-dasharray="10,5"/>
+    </svg>
+    
+    <svg class="sine-wave sine-wave-2" viewBox="0 0 1000 200">
+        <path class="sine-wave-path" d="M0,100 Q125,150 250,100 T500,100 T750,100 T1000,100" stroke="#10b981" stroke-dasharray="15,10" opacity="0.4"/>
+    </svg>
+    
+    <svg class="sine-wave sine-wave-3" viewBox="0 0 1000 200">
+        <path class="sine-wave-path" d="M0,100 Q125,30 250,100 T500,100 T750,100 T1000,100" stroke="#ff6b6b" stroke-dasharray="20,5" opacity="0.3"/>
+    </svg>
+    
+    <!-- Rotating Mini Galaxies -->
+    <div class="mini-galaxy galaxy-1"></div>
+    <div class="mini-galaxy galaxy-2"></div>
+    <div class="mini-galaxy galaxy-3"></div>
+    
+    <!-- Circle Ripple Waves -->
+    <div class="ripple-container">
+        <div class="ripple-wave ripple-1"></div>
+        <div class="ripple-wave ripple-2"></div>
+        <div class="ripple-wave ripple-3"></div>
+        <div class="ripple-wave ripple-4"></div>
+    </div>
+    
+    <!-- Pulsing Circle Waves -->
+    <div class="pulse-circle pulse-1"></div>
+    <div class="pulse-circle pulse-2"></div>
+    
+    <!-- Animated Stars -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <!-- Floating Particles -->
+    <div id="particlesContainer"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">✨</div>
+            <span>Astroverse AI</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#guidance">Daily Guidance</a>
+            <a href="#chart">Birth Chart</a>
+            <a href="#community">Community</a>
+            <button class="get-started-btn">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="badge">Good afternoon from Mount Kailash, Tibet</div>
+        <h1 class="hero-title">
+            Ancient Wisdom,<br>
+            <span class="gradient-text">Intelligent Insights</span>
+        </h1>
+        <p class="hero-description">
+            Your personal spiritual guide powered by authentic Vedic knowledge.
+            Discover personalized astrological guidance that adapts to your daily
+            life's journey with ancient wisdom meets AI.
+        </p>
+        <div class="hero-buttons">
+            <button class="primary-btn">Get Your Reading →</button>
+            <button class="secondary-btn">Explore Vedic Wisdom</button>
+        </div>
+
+        <!-- Cosmic Visual -->
+        <div class="cosmic-visual">
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring"></div>
+            <div class="cosmic-center">
+                <div>
+                    <div style="font-size: 12px;">Discover Your</div>
+                    <div style="font-size: 16px;">Cosmic Path</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features scroll-animate">
+        <h2 class="section-title">Today's Cosmic Highlights</h2>
+        <p class="section-subtitle">Personalized insights for your spiritual journey</p>
+        
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon">💖</div>
+                <h3 class="feature-title">Love & Relationships</h3>
+                <p class="feature-description">
+                    Venus aligns favorably today, bringing harmony
+                    in relationships and cosmic balance.
+                </p>
+                <button class="feature-btn">View Full Reading</button>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Direction & Timing</h3>
+                <p class="feature-description">
+                    Direction: Northwest<br>
+                    Time: 11:00 PM - 1:00 AM
+                </p>
+                <button class="feature-btn">Get More Details</button>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Spiritual Practices</h3>
+                <p class="feature-description">
+                    Discover the Universe's guidance, life timings is
+                    recommended for removing obstacles and cosmic alignment.
+                </p>
+                <button class="feature-btn">Learn More Practices</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose scroll-animate">
+        <h2 class="section-title">Why Choose Our Cosmic AI?</h2>
+        <p class="section-subtitle">Experience the perfect fusion of ancient Vedic wisdom and cutting-edge AI technology</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔮</div>
+                <h3>Personalized Cosmic Guidance</h3>
+                <p>AI-powered insights tailored to your unique birth chart, karmic path, and spiritual alignment.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🪐</div>
+                <h3>Ancient Vedic Wisdom</h3>
+                <p>Traditional astrological calculations rooted in thousands of years of cosmic wisdom for authentic guidance.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⏱️</div>
+                <h3>Real-time Cosmic Updates</h3>
+                <p>Live planetary movements and celestial events updated continuously for accurate spiritual guidance.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Cosmic Expert Network</h3>
+                <p>Connect with verified cosmic guides and Vedic experts for deeper spiritual insights and guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birth Chart Form -->
+    <section class="birth-chart scroll-animate" id="chart">
+        <h2 class="section-title">Your Cosmic Blueprint</h2>
+        <p class="section-subtitle">Share your birth details to receive personalized Vedic guidance</p>
+        
+        <div class="form-container">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="birthDate">Date of Birth</label>
+                    <input type="date" id="birthDate">
+                </div>
+                <div class="form-group">
+                    <label for="birthTime">Time of Birth</label>
+                    <input type="time" id="birthTime">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="birthPlace">Place of Birth</label>
+                <input type="text" id="birthPlace" placeholder="City, Country">
+            </div>
+            
+            <div class="rashi-sign">
+                <label>Your Rashi (Moon Sign)</label>
+                <div>Select your Rashi</div>
+            </div>
+            
+            <button class="submit-btn">🔮 Reveal My Guidance</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🌟 Astroverse AI</h3>
+                <p>Bridging ancient wisdom with modern AI to provide authentic Vedic knowledge and wisdom of technology.</p>
+                <div class="social-links">
+                    <a href="#">📧</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📷</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Daily Guidance</a></li>
+                    <li><a href="#">Birth Chart</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Vedic Astrology</a></li>
+                    <li><a href="#">Birth Chart Reading</a></li>
+                    <li><a href="#">Daily Horoscope</a></li>
+                    <li><a href="#">Relationship Compatibility</a></li>
+                    <li><a href="#">Career Guidance</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>📧 bk@aiastroverse.com</li>
+                    <li>📞 +91 9316163905</li>
+                    <li>📍 Mount Kailash</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Astroverse AI. All rights reserved. | ❤️ by Astroverse AI</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate random stars
+        function createStars() {
+            const starsContainer = document.getElementById('starsContainer');
+            const numStars = 150; // Increased star count
+            
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                // Add glow to some stars
+                if (Math.random() > 0.8) {
+                    star.style.boxShadow = `0 0 ${size * 2}px rgba(255, 255, 255, 0.8)`;
+                }
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Create shooting stars
+        function createShootingStar() {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.top = Math.random() * 50 + '%';
+            shootingStar.style.left = '-100px';
+            document.body.appendChild(shootingStar);
+            
+            setTimeout(() => {
+                shootingStar.remove();
+            }, 3000);
+        }
+
+        // Create cosmic dust
+        function createCosmicDust() {
+            const dustContainer = document.createElement('div');
+            dustContainer.style.position = 'fixed';
+            dustContainer.style.width = '100%';
+            dustContainer.style.height = '100%';
+            dustContainer.style.zIndex = '-1';
+            dustContainer.style.pointerEvents = 'none';
+            document.body.appendChild(dustContainer);
+            
+            for (let i = 0; i < 50; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'cosmic-dust';
+                dust.style.left = Math.random() * 100 + '%';
+                dust.style.animationDelay = Math.random() * 40 + 's';
+                dust.style.animationDuration = (30 + Math.random() * 20) + 's';
+                dustContainer.appendChild(dust);
+            }
+        }
+
+        // Create galaxy clusters
+        function createGalaxyClusters() {
+            const colors = ['#8b5cf6', '#ec4899', '#10b981', '#ffb800'];
+            
+            for (let i = 0; i < 5; i++) {
+                const cluster = document.createElement('div');
+                cluster.style.position = 'fixed';
+                cluster.style.width = Math.random() * 300 + 200 + 'px';
+                cluster.style.height = cluster.style.width;
+                cluster.style.background = `radial-gradient(circle, ${colors[i % colors.length]}15, transparent)`;
+                cluster.style.borderRadius = '50%';
+                cluster.style.left = Math.random() * 100 + '%';
+                cluster.style.top = Math.random() * 100 + '%';
+                cluster.style.zIndex = '-2';
+                cluster.style.filter = 'blur(40px)';
+                cluster.style.animation = `nebulaFloat ${20 + Math.random() * 20}s ease-in-out infinite`;
+                cluster.style.animationDelay = Math.random() * 10 + 's';
+                document.body.appendChild(cluster);
+            }
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 30 + 10;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                
+                // Vary particle colors
+                const particleColors = [
+                    'radial-gradient(circle, rgba(138, 43, 226, 0.8), transparent)',
+                    'radial-gradient(circle, rgba(236, 72, 153, 0.8), transparent)',
+                    'radial-gradient(circle, rgba(255, 184, 0, 0.8), transparent)',
+                    'radial-gradient(circle, rgba(16, 185, 129, 0.8), transparent)'
+                ];
+                particle.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, 25000);
+            }, 1500);
+        }
+
+        // Animated constellation connections
+        function animateConstellations() {
+            const constellations = document.querySelectorAll('.constellation');
+            constellations.forEach((constellation, index) => {
+                constellation.style.animation = `constellationFloat ${30 + index * 10}s ease-in-out infinite`;
+            });
+        }
+
+        // Create dynamic circle waves on click
+        function createClickRipple(x, y) {
+            const ripple = document.createElement('div');
+            ripple.style.position = 'fixed';
+            ripple.style.width = '20px';
+            ripple.style.height = '20px';
+            ripple.style.borderRadius = '50%';
+            ripple.style.border = '2px solid rgba(138, 43, 226, 0.6)';
+            ripple.style.left = x - 10 + 'px';
+            ripple.style.top = y - 10 + 'px';
+            ripple.style.zIndex = '-1';
+            ripple.style.animation = 'rippleExpand 2s ease-out';
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 2000);
+        }
+
+        // Create more dynamic ripples
+        function createDynamicRipples() {
+            setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const ripple = document.createElement('div');
+                ripple.style.position = 'fixed';
+                ripple.style.width = '10px';
+                ripple.style.height = '10px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.border = '1px solid';
+                ripple.style.borderColor = `rgba(${Math.random() * 255}, ${Math.random() * 100 + 100}, ${Math.random() * 255}, 0.5)`;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.zIndex = '-1';
+                ripple.style.animation = 'rippleExpand 3s ease-out';
+                document.body.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 3000);
+            }, 3000);
+        }
+
+        // Add constellation float animation
+        const constellationStyle = document.createElement('style');
+        constellationStyle.textContent = `
+            @keyframes constellationFloat {
+                0%, 100% {
+                    transform: translate(0, 0) rotate(0deg);
+                }
+                25% {
+                    transform: translate(20px, -10px) rotate(5deg);
+                }
+                50% {
+                    transform: translate(-10px, 20px) rotate(-5deg);
+                }
+                75% {
+                    transform: translate(-20px, -10px) rotate(3deg);
+                }
+            }
+        `;
+        document.head.appendChild(constellationStyle);
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.scroll-animate');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Parallax effect
+        function handleParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.cosmic-visual');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(calc(-50% + ${scrolled * speed}px))`;
+            });
+        }
+
+        // Mouse move effect
+        function handleMouseMove(e) {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const speed = particle.offsetWidth / 100;
+                particle.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Button hover effects
+        function initButtonEffects() {
+            const buttons = document.querySelectorAll('button');
+            
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.style.position = 'absolute';
+                    ripple.style.width = '100%';
+                    ripple.style.height = '100%';
+                    ripple.style.background = 'radial-gradient(circle, rgba(255,255,255,0.3), transparent)';
+                    ripple.style.top = '0';
+                    ripple.style.left = '0';
+                    ripple.style.borderRadius = 'inherit';
+                    ripple.style.animation = 'ripple 0.6s ease-out';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                from {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Form interactions
+        function initFormEffects() {
+            const inputs = document.querySelectorAll('input');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createParticles();
+            createCosmicDust();
+            createGalaxyClusters();
+            animateConstellations();
+            createDynamicRipples();
+            initSmoothScroll();
+            initButtonEffects();
+            initFormEffects();
+            
+            // Create shooting stars periodically
+            setInterval(createShootingStar, 4000);
+            
+            // Initial check for scroll animations
+            handleScrollAnimations();
+            
+            // Remove loader after delay
+            setTimeout(() => {
+                document.querySelector('.loader').style.display = 'none';
+            }, 3000);
+        });
+
+        // Add click ripple effect
+        document.addEventListener('click', (e) => {
+            createClickRipple(e.clientX, e.clientY);
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            handleScrollAnimations();
+            handleParallax();
+        });
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        // Add typing animation to hero title
+        function typeWriter() {
+            const titles = ['Ancient Wisdom,', 'Cosmic Guidance,', 'Spiritual Journey,'];
+            const element = document.querySelector('.hero-title').firstChild;
+            let titleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            function type() {
+                const currentTitle = titles[titleIndex];
+                
+                if (isDeleting) {
+                    element.textContent = currentTitle.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    element.textContent = currentTitle.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                if (!isDeleting && charIndex === currentTitle.length) {
+                    setTimeout(() => {
+                        isDeleting = true;
+                        type();
+                    }, 2000);
+                    return;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                }
+                
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+            
+            // Start typing after initial load
+            setTimeout(type, 3000);
+        }
+
+        // Start typing animation
+        typeWriter();
+
+        // Add cosmic cursor trail
+        const cursorTrail = [];
+        const trailLength = 20;
+
+        for (let i = 0; i < trailLength; i++) {
+            const dot = document.createElement('div');
+            dot.style.position = 'fixed';
+            dot.style.width = '4px';
+            dot.style.height = '4px';
+            dot.style.borderRadius = '50%';
+            dot.style.background = `rgba(139, 92, 246, ${1 - i / trailLength})`;
+            dot.style.pointerEvents = 'none';
+            dot.style.zIndex = '9999';
+            dot.style.transition = 'transform 0.1s ease-out';
+            document.body.appendChild(dot);
+            cursorTrail.push(dot);
+        }
+
+        let mouseX = 0, mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursorTrail() {
+            let x = mouseX;
+            let y = mouseY;
+            
+            cursorTrail.forEach((dot, index) => {
+                const nextDot = cursorTrail[index + 1] || cursorTrail[0];
+                dot.style.left = x + 'px';
+                dot.style.top = y + 'px';
+                dot.style.transform = `scale(${1 - index / trailLength})`;
+                
+                x += (nextDot.offsetLeft - dot.offsetLeft) * 0.3;
+                y += (nextDot.offsetTop - dot.offsetTop) * 0.3;
+            });
+            
+            requestAnimationFrame(animateCursorTrail);
+        }
+
+        animateCursorTrail();
+    </script>
+</body>
+</html>
